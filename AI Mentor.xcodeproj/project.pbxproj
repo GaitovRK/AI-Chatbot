@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C11689A2CF3A157000F7EA4 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1168992CF3A157000F7EA4 /* ChatView.swift */; };
 		5C4C053A2CD28F0600C7B674 /* AI_MentorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C05392CD28F0600C7B674 /* AI_MentorApp.swift */; };
 		5C4C053C2CD28F0600C7B674 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C053B2CD28F0600C7B674 /* ContentView.swift */; };
 		5C4C053E2CD28F0700C7B674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C053D2CD28F0700C7B674 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C1168992CF3A157000F7EA4 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		5C4C05362CD28F0600C7B674 /* AI Mentor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Mentor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4C05392CD28F0600C7B674 /* AI_MentorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_MentorApp.swift; sourceTree = "<group>"; };
 		5C4C053B2CD28F0600C7B674 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C1168982CF3A14A000F7EA4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		5C4C052D2CD28F0600C7B674 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +60,10 @@
 		5C4C05382CD28F0600C7B674 /* AI Mentor */ = {
 			isa = PBXGroup;
 			children = (
+				5C1168982CF3A14A000F7EA4 /* New Group */,
 				5C4C05392CD28F0600C7B674 /* AI_MentorApp.swift */,
 				5C4C053B2CD28F0600C7B674 /* ContentView.swift */,
+				5C1168992CF3A157000F7EA4 /* ChatView.swift */,
 				5C4C053D2CD28F0700C7B674 /* Assets.xcassets */,
 				5C4C053F2CD28F0700C7B674 /* Preview Content */,
 			);
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C4C053C2CD28F0600C7B674 /* ContentView.swift in Sources */,
+				5C11689A2CF3A157000F7EA4 /* ChatView.swift in Sources */,
 				5C4C053A2CD28F0600C7B674 /* AI_MentorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
