@@ -7,9 +7,32 @@
 
 import SwiftUI
 
+struct Mentor: Identifiable {
+    var id: Int
+    var name: String
+    var image: String
+}
+
 struct ContentView: View {
+    @StateObject var appController = AppController()
     
-    var mentors = ["Steve Jobs", "Bill Gates", "Elon Musk", "Mark Zuckerberg", "Jeff Bezos", "Rashid Gaitov", "Sergey Brin", "Larry Page", "Tim Cook", "Satya Nadella", "Sundar Pichai", "Jack Ma", "Larry Ellison", "Reed Hastings", "Brian Chesky", "Travis Kalanick", "Dara Khosrowshahi", "Daniel Ek", "Daniel Zhang", "Daniel Dines", "Daniel Schulman"]
+    var mentors: [Mentor] = [
+        Mentor(id: 0, name: "Steve Jobs", image: "person.fill"),
+        Mentor(id: 1, name: "Bill Gates", image: "person.fill"),
+        Mentor(id: 2, name: "Elon Musk", image: "person.fill"),
+        Mentor(id: 3, name: "Mark Zuckerberg", image: "person.fill"),
+        Mentor(id: 4, name: "Jeff Bezos", image: "person.fill"),
+        Mentor(id: 5, name: "Rashid Gaitov", image: "person.fill"),
+//        Mentor(id: 6, name: "Sergey Brin", image: "sergey"),
+//        Mentor(id: 7, name: "Larry Page", image: "larry"),
+//        Mentor(id: 8, name: "Tim Cook", image: "tim"),
+//        Mentor(id: 9, name: "Satya Nadella", image: "satya"),
+//        Mentor(id: 10, name: "Sundar Pichai", image: "sundar"),
+//        Mentor(id: 11, name: "Jack Ma", image: "jack"),
+//        Mentor(id: 12, name: "Larry Ellison", image: "larryellison"),
+//        Mentor(id: 13, name: "Reed Hastings", image: "reed")
+    ]
+    
     let rows = [
             GridItem(.flexible())
         ]
@@ -27,24 +50,46 @@ struct ContentView: View {
                 
                 ScrollView {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 42) {
-                            ForEach(mentors, id: \.self) { mentor in
-                                    showMentor(name: mentor)
+                            ForEach(mentors) { mentor in
+                                NavigationLink {
+                                    ChatView()
+                                } label: {
+                                    showMentor(name: mentor.name, image: mentor.image)
+                                }
+
                             }
                         }
                         .padding()
                 }
                 
-                TextField("Write a message", text: $message)
-                    .padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                HStack {
+                    TextField("Enter message...", text: $message)
+                        .padding()
+                        .cornerRadius(10)
+                        .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                        .frame(maxWidth: .infinity)
+                    
+                    
+                    Button(action: {
+                        Task {
+                            let response = await appController.askGPT4_o_mini(message: message)
+                            print(response)
+                        }
+                    }) {
+                        Text("Send")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }.padding(24)
             }
         }
     }
     
-    private func showMentor(name: String) -> some View {
+    private func showMentor(name: String, image: String) -> some View {
         VStack {
-            Image(systemName: "person.fill")
+            Image(systemName: image)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 60, height: 60)

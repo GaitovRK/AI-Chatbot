@@ -18,20 +18,19 @@ struct ChatView: View {
                     ForEach(messages, id: \.self) { message in
                         Text(message)
                             .padding()
-                            .background(Color.gray.opacity(0.1))
+                            .frame(alignment: .leading)
                             .cornerRadius(10)
-                            .padding(.vertical, 5)
                     }
                 }
                 .frame(maxHeight: .infinity)  // Allow the List to take up all available space
                 
-                // TextField for input
                 HStack {
                     TextField("Enter message...", text: $currentMessage)
                         .padding()
-                        .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
-                        .frame(maxWidth: .infinity)  // Make the TextField take up full width
+                        .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                        .frame(maxWidth: .infinity)
+                    
                     
                     Button(action: {
                         sendMessage()
@@ -42,8 +41,7 @@ struct ChatView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                }
-                .padding()
+                }.padding()
             }
             .padding()
         }
