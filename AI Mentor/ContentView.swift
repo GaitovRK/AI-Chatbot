@@ -17,12 +17,12 @@ struct ContentView: View {
     @StateObject var appController = AppController()
     
     var mentors: [Mentor] = [
-        Mentor(id: 0, name: "Steve Jobs", image: "person.fill"),
-        Mentor(id: 1, name: "Bill Gates", image: "person.fill"),
-        Mentor(id: 2, name: "Elon Musk", image: "person.fill"),
-        Mentor(id: 3, name: "Mark Zuckerberg", image: "person.fill"),
-        Mentor(id: 4, name: "Jeff Bezos", image: "person.fill"),
-        Mentor(id: 5, name: "Rashid Gaitov", image: "person.fill"),
+        Mentor(id: 0, name: "Steve Jobs", image: "👨🏻‍💻"),
+        Mentor(id: 1, name: "Bill Gates", image: "👨🏼‍🦳"),
+        Mentor(id: 2, name: "Elon Musk", image: "👨🏻‍🔧"),
+        Mentor(id: 3, name: "Mark Zuckerberg", image: "👨🏼‍💻"),
+        Mentor(id: 4, name: "Jeff Bezos", image: "👨🏻‍🦲"),
+        Mentor(id: 5, name: "Rashid Gaitov", image: "👨🏻‍🦱"),
 //        Mentor(id: 6, name: "Sergey Brin", image: "sergey"),
 //        Mentor(id: 7, name: "Larry Page", image: "larry"),
 //        Mentor(id: 8, name: "Tim Cook", image: "tim"),
@@ -62,37 +62,35 @@ struct ContentView: View {
                         .padding()
                 }
                 
-                HStack {
-                    TextField("Enter message...", text: $message)
-                        .padding()
-                        .cornerRadius(10)
-                        .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                        .frame(maxWidth: .infinity)
-                    
-                    
-                    Button(action: {
-                        Task {
-                            let response = await appController.askGPT4_o_mini(message: message)
-                            print(response)
-                        }
-                    }) {
-                        Text("Send")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                }.padding(24)
+//                HStack {
+//                    TextField("Enter message...", text: $message)
+//                        .padding()
+//                        .cornerRadius(10)
+//                        .border(Color.gray, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+//                        .frame(maxWidth: .infinity)
+//                    
+//                    
+//                    Button(action: {
+//                        Task {
+//                            let response = await appController.askGPT4_o_mini(message: message)
+//                            print(response)
+//                        }
+//                    }) {
+//                        Text("Send")
+//                            .padding()
+//                            .background(Color.blue)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//                    }
+//                }.padding(24)
             }
         }
     }
     
     private func showMentor(name: String, image: String) -> some View {
         VStack {
-            Image(systemName: image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 60, height: 60)
+            Text(image)
+                .font(.system(size: 60))
                 .clipShape(Circle())
                 .shadow(radius: 10)
 
